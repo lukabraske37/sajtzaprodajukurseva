@@ -7,11 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicijalizacija smooth scrolling-a
     initSmoothScrolling();
     
-    // Promena svih linkova "Kupi kurs" da vode na sekciju sa kursevima
+    // Postavljanje linkova za kupovinu kurseva
     const buyButtons = document.querySelectorAll('.buy-btn');
     buyButtons.forEach(button => {
-        button.setAttribute('href', '#courses');
-        button.removeAttribute('target'); // Uklanjamo target="_blank" jer ostajemo na istoj stranici
+        // Ako je dugme za besplatne kurseve, vodi na popup za prijavu
+        if (button.textContent.trim() === 'Preuzmi') {
+            button.setAttribute('href', '#subscription-popup');
+        } 
+        // Ako je dugme za kupovinu, vodi na Ko-fi prodavnicu
+        else if (button.textContent.trim() === 'Kupi kurs') {
+            button.setAttribute('href', 'https://ko-fi.com/nikolanikolic98141/shop');
+            button.setAttribute('target', '_blank'); // Otvaramo u novom tabu
+        }
     });
     
     // Promena glavnog dugmeta u navigaciji
