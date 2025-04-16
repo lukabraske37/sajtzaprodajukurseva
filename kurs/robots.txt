@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Dozvoli pristup svim pretraživačima
+Disallow: /private/
+Disallow: /admin/
+
+# Putanja do sitemap fajla
+Sitemap: https://premium-edukacija.com/sitemap.xml
